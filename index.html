@@ -1,145 +1,304 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <link href="index.css" rel="stylesheet" />
-    <title> Calculator </title>
-  </head>
-  <body>
-    <h1> My Calculator </h1>
-    <table>
-      <tr>
-        <td colspan="4">
-          <input type="text" id="calc-display" value="0" />
-        </td>
-      </tr>
-      <tr>
-        <td colspan="2">
-          <button class="red" id="clear-all-button">AC</button>
-        </td>
-        <td>
-          <button class="blue" id="clear-button">C</button>
-        </td>
-        <td>
-          <button class="operators">*</button>
-        </td>
-      </tr>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abimanyu D. Poernomo - Fullstack Developer</title>
+    <meta name="description" content="Portfolio of Abimanyu D. Poernomo, an experienced Fullstack Developer skilled in modern frontend frameworks, backend technologies, and database management.">
+    <meta name="keywords" content="Abimanyu D. Poernomo, Fullstack Developer, Web Developer, iOS Developer, Portfolio">
+    <meta name="author" content="Abimanyu D. Poernomo">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>👨‍💻</text></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Header with Navigation -->
+        <header>
+            <a href="#" class="logo">ADP.</a>
+            <nav>
+                <ul>
+                    <!-- <li><a href="#projects">projects</a></li> -->
+                    <li><a href="#skills">skills</a></li>
+                    <li><a href="#experience">experience</a></li>
+                    <li><a href="#contact">contact</a></li>
+                </ul>
+            </nav>
+        </header>
 
-      <tr>
-        <td>
-          <button value="7" id="7" class="numbers">7</button>
-        </td>
-        <td>
-          <button value="8" id="8" class="numbers">8</button>
-        </td>
-        <td>
-          <button value="9" id="9" class="numbers">9</button>
-        </td>
-        <td>
-          <button class="operators">/</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button value="4" id="4" class="numbers">4</button>
-        </td>
-        <td>
-          <button value="5" id="5" class="numbers">5</button>
-        </td>
-        <td>
-          <button value="6" id="6" class="numbers">6</button>
-        </td>
-        <td>
-          <button class="operators">+</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button value="1" id="1" class="numbers">1</button>
-        </td>
-        <td>
-          <button value="2" id="2" class="numbers">2</button>
-        </td>
-        <td>
-          <button value="3" id="3" class="numbers">3</button>
-        </td>
-        <td>
-          <button class="operators">-</button>
-        </td>
-      </tr>
-      <tr>
-        <td>
-          <button class="modifiers">+-</button>
-        </td>
-        <td>
-          <button value="0" id="0" class="numbers">0</button>
-        </td>
-        <td>
-          <button class="modifiers">.</button>
-        </td>
-        <td>
-          <button class="green" id="result-button">=</button>
-        </td>
-      </tr>
-    </table>
-    <script>
-        var inputLabel = document.getElementById('calc-display');
-        var resultButton = document.getElementById('result-button');
-        var clearAllButton = document.getElementById('clear-all-button');
-        var clearButton = document.getElementById('clear-button');
-        var numbers = document.getElementsByClassName('numbers');
-        var operators = document.getElementsByClassName('operators');
-        
-        for(var i = 0; i < numbers.length; i++){
-            numbers[i].addEventListener("click", function(){
-                pushBtn(this);
-            });
-        }
-        
-        for(var i = 0; i < operators.length; i++){
-            operators[i].addEventListener("click", function(){
-                pushBtn(this);
-            });
-        }
-        
-        resultButton.addEventListener("click", function(){
-            try {
-               inputLabel.value = eval(inputLabel.value);
-            } catch (e) {
-                alert("Invalid Input!");
-            }
-        });
-        
-        clearButton.addEventListener("click", function(){
-            pushBtn(this);
-        });
-        
-        clearAllButton.addEventListener("click", function(){
-            pushBtn(this);
-        });
-        
-        inputLabel.addEventListener("input", function(){
-            //Regex valdation for 0 - 9 & operator ["+", "-", "*", "/"]
-            var isValidInput = inputLabel.value.match(/^([0-9\+\-\*\/])$/);
-            if (!isValidInput) {
-                alert("Invalid Input!");
-                var newLenght = inputLabel.value.length - 1;
-                inputLabel.value = inputLabel.value.substr(0,newLenght);
-            }
-        });
-     
-        function pushBtn(obj) {
-            var pushed = obj.innerHTML;
-            if (pushed == 'C') {
-                // Clear
-                var newLenght = inputLabel.value.length - 1;
-                inputLabel.value = inputLabel.value.substr(0,newLenght);
-            } else if (pushed == 'AC') {
-                // All Clear
-                inputLabel.value = '0';
-            } else {
-                inputLabel.value += pushed;   
-            }
-        }
-    </script>
-  </body>
+        <!-- Main Content -->
+        <main>
+            <!-- Hero Section -->
+            <section class="hero">
+                <h1>Hi, I am <span>Abimanyu D. Poernomo</span>.</h1>
+                <h2>Fullstack Developer.</h2>
+                <p id="resume">Experienced Fullstack Developer with a passion for creating responsive, user-friendly web applications. Skilled in modern frontend frameworks, backend technologies, and database management. Committed to writing clean, maintainable code and delivering high-quality solutions that meet client needs.</p>
+                
+                <div class="cta-buttons">
+                    <a href="https://rebrand.ly/adpresume" class="resume-btn">Resume</a>
+                    <div class="social-icons">
+                        <a href="https://github.com/dhapoer" aria-label="GitHub"><!-- GitHub icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                        </a>
+                        <a href="http://linkedin.com/in/dhapoer" aria-label="LinkedIn"><!-- LinkedIn icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect x="2" y="9" width="4" height="12"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+                        </a>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Skills Section -->
+            <section id="skills" class="skills-section">
+                <h2>Technical Skills</h2>
+                <div class="skills-container">
+                    <div class="skill-category">
+                        <h3>Programming Languages</h3>
+                        <ul class="skill-list">
+                            <li>Swift</li>
+                            <li>Flutter</li>
+                            <li>Go</li>
+                            <li>TypeScript</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Frameworks & Libraries</h3>
+                        <ul class="skill-list">
+                            <li>React.js</li>
+                            <li>Svelte.js</li>
+                            <li>Vue.js</li>
+                            <li>Node.js</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>Databases</h3>
+                        <ul class="skill-list">
+                            <li>MySQL</li>
+                            <li>SQL Server</li>
+                            <li>Redis</li>
+                            <li>PostgreSQL</li>
+                        </ul>
+                    </div>
+                    <div class="skill-category">
+                        <h3>DevOps & Tools</h3>
+                        <ul class="skill-list">
+                            <li>Circle CI</li>
+                            <li>AWS</li>
+                            <li>Digital Ocean</li>
+                            <li>Cloudflare</li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Projects Section
+            <section id="projects" class="projects-section">
+                <h2>My Projects</h2>
+                <div class="projects-container">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"></rect><line x1="8" y1="21" x2="16" y2="21"></line><line x1="12" y1="17" x2="12" y2="21"></line></svg>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Crypto Trading Platform</h3>
+                            <p class="project-description">A comprehensive platform for cryptocurrency trading with real-time market data and portfolio tracking.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">React.js</span>
+                                <span class="project-tag">Node.js</span>
+                                <span class="project-tag">WebSockets</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path></svg>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">NFT Marketplace</h3>
+                            <p class="project-description">A Web3 platform for buying, selling, and trading NFTs with wallet integration and auction functionality.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Solidity</span>
+                                <span class="project-tag">React</span>
+                                <span class="project-tag">Ethereum</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    Live Demo
+                                </a>
+                                <a href="#" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
+                        </div>
+                        <div class="project-content">
+                            <h3 class="project-title">Ride-Sharing App</h3>
+                            <p class="project-description">A mobile application for booking on-demand rides with real-time tracking and payment integration.</p>
+                            <div class="project-tags">
+                                <span class="project-tag">Swift</span>
+                                <span class="project-tag">Firebase</span>
+                                <span class="project-tag">Google Maps API</span>
+                            </div>
+                            <div class="project-links">
+                                <a href="#" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"></path><polyline points="15 3 21 3 21 9"></polyline><line x1="10" y1="14" x2="21" y2="3"></line></svg>
+                                    App Store
+                                </a>
+                                <a href="#" class="project-link">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path></svg>
+                                    GitHub
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    -->
+                </div>
+            </section>
+
+            <!-- Experience Section -->
+            <section id="experience" class="experience-section">
+                <h2>Work Experience</h2>
+                <div class="experience-container">
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">Fullstack Software Engineer</h3>
+                                <p class="company">Usecyan.com (Web3 Startup)</p>
+                            </div>
+                            <p class="duration">Jun 2022 - Jun 2023</p>
+                        </div>
+                        <div class="job-description">
+                            <p>Cyan is a Web3 company that enables users to access a 'buy now, pay later' service or obtain a collateralized loan for NFTs and Metaverse assets.</p>
+                            <ul>
+                                <li>In charge of maintaining and developing new features on Cyan's main website and developing Chrome extension apps.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">Senior iOS Developer</h3>
+                                <p class="company">Indodax.com (Largest Crypto Exchange in Indonesia)</p>
+                            </div>
+                            <p class="duration">Nov 2021 - Jun 2022</p>
+                        </div>
+                        <div class="job-description">
+                            <p>Indodax is a Crypto Exchange company that allows users to buy and sell bitcoin and other major cryptocurrencies.</p>
+                            <ul>
+                                <li>In charge of rewriting iOS apps using MVVM-C Framework that is currently used by 3 million users. iOS mobile app was developed in 4 months.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">Senior iOS Engineer</h3>
+                                <p class="company">Ajaib.co.id (Y Combinator S18 - Stock Trading Application)</p>
+                            </div>
+                            <p class="duration">Jan 2020 – Oct 2021</p>
+                        </div>
+                        <div class="job-description">
+                            <p>Ajaib is an online brokerage that allows Indonesians to buy and sell stocks, ETFs, and mutual funds.</p>
+                            <ul>
+                                <li>Rewrote iOS mobile app from React Native to Native using Swift & MVVM Framework in 3 months.</li>
+                                <li>iOS mobile app currently includes Mutual Fund, Stock and Community Feature. App is used by 1 million users as of Sep 2021.</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="experience-item">
+                        <div class="experience-header">
+                            <div>
+                                <h3 class="job-title">Full-Stack Software Engineer</h3>
+                                <p class="company">Hipcar.com (Car Sharing Startup)</p>
+                            </div>
+                            <p class="duration">Jan 2017 – Dec 2019</p>
+                        </div>
+                        <div class="job-description">
+                            <p>HipCar is an Indonesia-based company that provides an online platform for users to book cars on-demand through their phones by putting in the source and the destination.</p>
+                            <ul>
+                                <li>Design & Code iOS Mobile Apps, Landing Page Website, Back Office Website to support 300 vehicles, 30 employers, and 50k users.</li>
+                                <li>Collaborated closely with CEO for product planning, timeline, and monitoring task for 3 subordinates.</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Contact Section -->
+            <section id="contact" class="contact-section">
+                <h2>Get In Touch</h2>
+                <div class="contact-container">
+                    <div class="contact-info">
+                        <p>I'm always open to new opportunities and collaborations. Feel free to reach out!</p>
+                        <p>Email: <a href="mailto:abimanyudharmapoernomo@gmail.com">abimanyudharmapoernomo@gmail.com</a></p>
+                        <p>Location: Jakarta, Indonesia</p>
+                    </div>
+                    <div class="contact-form">
+                        <form id="contactForm" onsubmit="return false;">
+                            <div class="form-group">
+                                <label for="name">Name</label>
+                                <input type="text" id="name" name="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="subject">Subject</label>
+                                <input type="text" id="subject" name="subject" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="message">Message</label>
+                                <textarea id="message" name="message" required></textarea>
+                            </div>
+                            <button type="submit" class="submit-btn" onclick="handleFormSubmit()">Send Message</button>
+                        </form>
+                    </div>
+                    <script>
+                        function handleFormSubmit() {
+                            const form = document.getElementById('contactForm');
+                            const name = document.getElementById('name').value;
+                            const email = document.getElementById('email').value;
+                            const subject = document.getElementById('subject').value;
+                            const message = document.getElementById('message').value;
+                            
+                            if (name && email && subject && message) {
+                                // In a real application, you would send this data to a server
+                                // For now, we'll just show an alert
+                                alert('Thank you for your message! I will get back to you soon.');
+                                form.reset();
+                            } else {
+                                alert('Please fill in all fields.');
+                            }
+                        }
+                    </script>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer>
+            <p>Created by Abimanyu D. Poernomo</p>
+        </footer>
+    </div>
+</body>
 </html>
